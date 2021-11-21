@@ -36,6 +36,10 @@ async function run() {
             const tour = await toursCollection.findOne(query)
             res.json(tour);
         })
+        app.get('/books/:email', async (req, res) => {
+            const email = await bookingCollection.findOne({email:req.body.email})
+            res.json(email);
+        })
         
          //post api
          app.post('/tours', async (req, res) => {
